@@ -17,7 +17,11 @@ def get_builds(tag):
 
 
 def tag_build(tag, nvr):
-    return session.tagBuild(tag, nvr)
+    try:
+        return session.tagBuild(tag, nvr)
+    except Exception as e:
+        # probably a protected package
+        print(str(e))
 
 
 def get_wanted_packages():
