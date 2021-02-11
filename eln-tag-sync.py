@@ -22,6 +22,7 @@ def tag_build(tag, nvr):
     except Exception as e:
         # probably a protected package
         print(str(e))
+        return None
 
 
 def get_wanted_packages():
@@ -125,6 +126,7 @@ if __name__ == "__main__":
     not_wanted = 0
     excluded = 0
     tagged = 0
+    errors = 0
 
     for source_build in source_builds:
         package = source_build['package_name']
@@ -140,11 +142,16 @@ if __name__ == "__main__":
             # the package is exluded from automation
             continue
 
-        tagged += 1
+        
         print(f"Tagging {source_build['nvr']} into {args.desttag}")
-        tag_build(args.desttag, source_build['nvr'])
+        result = tag_build(args.desttag, source_build['nvr'])
+        if result:
+            tagged += 1
+        else:
+            errors += 1
 
     print('\n\nFinal stats:\n')
     print(f'{not_wanted} packages filtered out as not wanted')
     print(f'{excluded} packages explicitly excluded from automation')
+    print(f'{errors} packages failed to be tagged from {args.srctag} to {args.desttag}')
     print(f'{tagged} packages tagged from {args.srctag} to {args.desttag}')
