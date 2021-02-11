@@ -29,8 +29,8 @@ def get_wanted_packages():
     """
     merged_packages = set()
 
-    distro_url = "https://tiny.distro.builders"
-    distro_view = "eln"
+    distro_url = "https://raw.githubusercontent.com/minimization/lists/main"
+    distro_view = "c9s"
     arches = ["aarch64", "armv7hl", "ppc64le", "s390x", "x86_64"]
     which_source = ["source", "buildroot-source"]
 
