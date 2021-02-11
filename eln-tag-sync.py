@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--srctag",
                         help="Name of the source tag",
-                        default="f34-updates")
+                        default="f34")
 
     parser.add_argument("--desttag",
                         help="Name of the destination tag",
