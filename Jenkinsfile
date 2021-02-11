@@ -34,8 +34,11 @@ pipeline {
 
     stages {
         stage('Sync Tags') {
+            environment {
+                KOJI_KEYTAB = credentials('fedora-keytab')
+            }
+
             steps {
-                checkout scm
                 sh "$WORKSPACE/eln-tag-sync.py --srctag ${params.SOURCE_TAG} --desttag ${params.DESTINATION_TAG}"
             }
         }

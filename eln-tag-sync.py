@@ -8,6 +8,7 @@ import logging
 
 # Connect to Fedora Koji instance
 session = koji.ClientSession('https://koji.fedoraproject.org/kojihub')
+session.gssapi_login(keytab=os.getenv('KOJI_KEYTAB'))
 
 
 def get_builds(tag):
