@@ -5,7 +5,6 @@ import koji
 import requests
 import logging
 import os
-import time
 
 
 # Connect to Fedora Koji instance
@@ -140,9 +139,6 @@ if __name__ == "__main__":
         tagged += 1
         print(f"Tagging {source_build['nvr']} into {args.desttag}")
         tag_build(args.desttag, source_build['nvr'])
-        # Koji doesn't seem to be happy if we are tagging dozens of builds
-        # in a quick succession; so let's slow down a bit
-        time.sleep(1)
 
     print('\n\nFinal stats:\n')
     print(f'{not_wanted} packages filtered out as not wanted')
