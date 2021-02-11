@@ -17,9 +17,7 @@ def get_builds(tag):
 
 
 def tag_build(tag, nvr):
-    # return session.tagBuild(tag, nvr)
-    # TODO: test and uncomment
-    pass
+    return session.tagBuild(tag, nvr)
 
 
 def get_wanted_packages():
