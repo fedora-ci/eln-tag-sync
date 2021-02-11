@@ -13,9 +13,9 @@ pipeline {
         disableConcurrentBuilds()
     }
 
-    // triggers {
-	//     cron('H * * * *')
-    // }
+    triggers {
+	    cron('*/5 * * * *')  // every 5 minutes
+    }
 
     parameters {
         string(
