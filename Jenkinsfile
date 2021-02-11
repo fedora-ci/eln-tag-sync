@@ -35,6 +35,7 @@ pipeline {
     stages {
         stage('Sync Tags') {
             steps {
+                checkout scm
                 sh "$WORKSPACE/eln-tag-sync.py --srctag ${params.SOURCE_TAG} --desttag ${params.DESTINATION_TAG}"
             }
         }
