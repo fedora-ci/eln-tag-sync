@@ -23,7 +23,7 @@ pipeline {
             defaultValue: 'f34',
             trim: true,
             description: 'Source tag.'
-        ),
+        )
         string(
             name: 'DESTINATION_TAG',
             defaultValue: 'f34-cr-eln',
