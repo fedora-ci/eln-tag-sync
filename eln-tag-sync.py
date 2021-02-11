@@ -4,6 +4,7 @@ import argparse
 import koji
 import requests
 import logging
+import os
 
 
 # Connect to Fedora Koji instance
