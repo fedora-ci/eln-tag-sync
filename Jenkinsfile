@@ -11,6 +11,7 @@ pipeline {
             )
         )
         disableConcurrentBuilds()
+        timeout(time: 30, unit: 'MINUTES')
     }
 
     triggers {
