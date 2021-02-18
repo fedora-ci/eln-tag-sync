@@ -91,8 +91,6 @@ def is_on_hold(package):
     hold = [
     ]
     hold_prefix = [
-        "rust",
-        "python",
     ]
 
     if package in hold:
