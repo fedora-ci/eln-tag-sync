@@ -13,7 +13,7 @@ session.gssapi_login(keytab=os.getenv('KOJI_KEYTAB'))
 
 
 def get_builds(tag):
-    return session.listTagged(tag, latest=True)
+    return session.listTagged(tag, latest=True, inherit=True)
 
 
 def tag_build(tag, nvr):
