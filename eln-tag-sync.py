@@ -12,8 +12,8 @@ session = koji.ClientSession('https://koji.fedoraproject.org/kojihub')
 session.gssapi_login(keytab=os.getenv('KOJI_KEYTAB'))
 
 
-def get_builds(tag, inherit=False):
-    return session.listTagged(tag, latest=True, inherit=inherit)
+def get_builds(tag):
+    return session.listTagged(tag, latest=True, inherit=True)
 
 
 def tag_build(tag, nvr):
@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
     wanted_packages = get_wanted_packages()
 
-    source_builds = get_builds(args.srctag, inherit=True)
+    source_builds = get_builds(args.srctag)
     dest_builds = get_builds(args.desttag)
     dest_nvrs = [x['nvr'] for x in dest_builds]
 
