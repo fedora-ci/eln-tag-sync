@@ -10,7 +10,6 @@ pipeline {
                 artifactNumToKeepStr: '50'
             )
         )
-        disableConcurrentBuilds()
         timeout(time: 30, unit: 'MINUTES')
     }
 
