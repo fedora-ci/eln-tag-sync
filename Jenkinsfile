@@ -20,7 +20,7 @@ pipeline {
     parameters {
         string(
             name: 'SOURCE_TAG',
-            defaultValue: 'f34-updates',
+            defaultValue: 'f34-updates-pending',
             trim: true,
             description: 'Source tag.'
         )
